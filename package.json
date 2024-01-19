@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@squoosh/lib": "^0.5.3",
     "css-loader": "^6.9.1",
     "css-minimizer-webpack-plugin": "^6.0.0",
     "html-webpack-plugin": "^5.6.0",
