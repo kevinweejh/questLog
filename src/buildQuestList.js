@@ -1,4 +1,5 @@
 import { createElement, appendMultipleChildren } from './utils.js';
+import EditTask from './editTask.js';
 
 export default () => {
     const container = document.querySelector('body');
@@ -13,11 +14,13 @@ export default () => {
         quest.tasks.forEach((task) => {
             const taskContainer = createElement('div', ['flex', 'flex-col', 'border', 'border-red-300', 'border-4'], '');
             const taskTitle = createElement('h1', ['text-2xl', 'font-semibold', 'border', 'border-red-300', 'border-4'], `Title: ${task.title}`);
+            const taskEditBtn = createElement('btn', ['p-3', 'm-3', 'border', 'hover:bg-purple-600', 'cursor-pointer', 'rounded-lg', 'w-fit'], '...');
+            taskEditBtn.addEventListener('click', () => EditTask(quest.id, task.id));
             const taskDescription = createElement('p', ['border', 'border-red-300', 'border-4'], `Description: ${task.description}`);
             const taskPriority = createElement('p', ['border', 'border-red-300', 'border-4'], `Priority: ${task.priority}`);
             const taskDueDate = createElement('p', ['border', 'border-red-300', 'border-4'], `Due date: ${task.dueDate}`);
             const taskCompletionStatus = createElement('p', ['border', 'border-red-300', 'border-4'], `Completed: ${task.completed}`);
-            appendMultipleChildren(taskContainer, taskTitle, taskDescription, taskPriority, taskDueDate, taskCompletionStatus)
+            appendMultipleChildren(taskContainer, taskTitle, taskEditBtn, taskDescription, taskPriority, taskDueDate, taskCompletionStatus)
 
             questContainer.appendChild(taskContainer);
         })
