@@ -1,4 +1,5 @@
 import UpdateView from './updateView.js';
+import { v4 as uuidv4 } from 'uuid';
 
 export default () => {
     const questName = prompt('What is the name of the quest you want to add a task to?');
@@ -7,6 +8,7 @@ export default () => {
     const questNames = initialQuestLog.map((quest) => quest['name']);
     if (questNames.includes(questName)) {
         const newTask = {
+            'id': uuidv4(),
             'title': prompt('What is the title of your next task?'),
             'description': prompt('What is the description of this task?'),
             'dueDate': prompt('When is this due?'),

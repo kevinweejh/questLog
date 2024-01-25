@@ -1,8 +1,10 @@
 import UpdateView from './updateView.js';
+import { v4 as uuidv4 } from 'uuid';
 
 export default () => {
     const initialQuestLog = JSON.parse(localStorage.getItem('questLog'));
     const newQuest = {
+        'id': uuidv4(),
         'name': prompt('What is the name of your next quest?'),
         'priority': parseInt(prompt('What is the priority of this quest?')),
         'default': false,
