@@ -6,7 +6,6 @@ export default () => {
     const newQuest = {
         'id': uuidv4(),
         'name': prompt('What is the name of your next quest?'),
-        'priority': parseInt(prompt('What is the priority of this quest?')),
         'default': false,
         'tasks': [],
     }

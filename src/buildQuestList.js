@@ -8,16 +8,16 @@ export default () => {
         const questContainer = createElement('div', ['flex', 'flex-col', 'border', 'border-blue-300', 'border-4'], '');
         const questName = createElement('h1', ['text-2xl', 'font-semibold', 'border'], `Quest: ${quest.name}`);
         const questDefaultStatus = createElement('p', ['border'], `Default: ${quest.default}`);
-        const questPriority = createElement('p', ['border'], `Priority: ${quest.priority}`);
-        appendMultipleChildren(questContainer, questName, questDefaultStatus, questPriority);
+        appendMultipleChildren(questContainer, questName, questDefaultStatus);
 
         quest.tasks.forEach((task) => {
             const taskContainer = createElement('div', ['flex', 'flex-col', 'border', 'border-red-300', 'border-4'], '');
             const taskTitle = createElement('h1', ['text-2xl', 'font-semibold', 'border', 'border-red-300', 'border-4'], `Title: ${task.title}`);
             const taskDescription = createElement('p', ['border', 'border-red-300', 'border-4'], `Description: ${task.description}`);
+            const taskPriority = createElement('p', ['border', 'border-red-300', 'border-4'], `Priority: ${task.priority}`);
             const taskDueDate = createElement('p', ['border', 'border-red-300', 'border-4'], `Due date: ${task.dueDate}`);
             const taskCompletionStatus = createElement('p', ['border', 'border-red-300', 'border-4'], `Completed: ${task.completed}`);
-            appendMultipleChildren(taskContainer, taskTitle, taskDescription, taskDueDate, taskCompletionStatus)
+            appendMultipleChildren(taskContainer, taskTitle, taskDescription, taskPriority, taskDueDate, taskCompletionStatus)
 
             questContainer.appendChild(taskContainer);
         })

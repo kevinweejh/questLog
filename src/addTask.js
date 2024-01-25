@@ -11,6 +11,7 @@ export default () => {
             'id': uuidv4(),
             'title': prompt('What is the title of your next task?'),
             'description': prompt('What is the description of this task?'),
+            'priority': parseInt(prompt('What is the priority of this task?')),
             'dueDate': prompt('When is this due?'),
             'completed': false,
         }
