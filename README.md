@@ -10,7 +10,7 @@
 
 QuestLog isn't just a to-do list; it's an adventure-themed productivity app that turns your daily tasks into exciting quests. Designed for those seeking motivation and fun in their daily routines, QuestLog combines the practicality of a to-do list with the engaging elements of a role-playing game.
 
-Check out the live version here: [QuestLog Demo](https://kevinweejh.github.io/restaurant/).
+Check out the live version here: [QuestLog Demo](https://kevinweejh.github.io/questlog/).
 
 ### Key Features
 
@@ -18,11 +18,12 @@ Check out the live version here: [QuestLog Demo](https://kevinweejh.github.io/re
 
 - [ ] Character Progression: Create a character when you start using the app. Completing tasks levels up your character, unlocking new abilities and rewards.
 
-- [ ] Reward System: Earn in-app currency, "Gold," by completing tasks. Use Gold to customize your character, unlock special abilities, or get real-world rewards like a coffee break or a movie night.
+- [ ] Reward System: Earn in-app currency, "Gold," by completing tasks. Use Gold to customize your character and unlock special abilities.
 
 ## Technical Details
 
-### Webpack Configuration
+### Local Storage
+QuestLog stores your data using the browser's `localStorage`, ensuring it remains available even after closing the tab or window. That said, data persistence is not guaranteed in 'private browsing' mode or if your browser is set to clear data automatically. It is worth noting that the data stored in `localStorage` is specific to the domain of QuestLog, so it can't be accessed by other websites, enhancing security and privacy.
 
 ## Getting Started
 
