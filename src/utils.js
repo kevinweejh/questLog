@@ -6,3 +6,9 @@ export const createElement = (element, classList, content, id=null) => {
     
     return newElement;
 }
+
+export const appendMultipleChildren = (parent, ...children) => {
+    children.forEach((child) => {
+        parent.appendChild(child);
+    })
+}
