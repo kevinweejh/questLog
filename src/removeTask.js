@@ -1,25 +1,18 @@
 import UpdateView from './updateView.js';
 
-export default () => {
-    const taskName = prompt('Name of task to remove:');
-    const initialQuestLog = JSON.parse(localStorage.getItem('questLog'));
-    const revisedQuestLog = initialQuestLog.map((quest) => {
-        const revisedTaskList = quest.tasks.filter((task) => task.title !== taskName)
-        return {
-            ...quest, 
-            tasks: revisedTaskList
-        }
-    });
-    
-    const initialTaskCount = initialQuestLog.reduce((count, quest) => count + quest.tasks.length, 0)
-    const revisedTaskCount = revisedQuestLog.reduce((count, quest) => count + quest.tasks.length, 0)
-    const isRemoved = initialTaskCount !== revisedTaskCount;
+export default (questId, taskId) => {
+    const questLog = JSON.parse(localStorage.getItem('questLog'));
 
-    if (isRemoved) {
-        localStorage.setItem('questLog', JSON.stringify(revisedQuestLog));
+    const affectedQuest = questLog.find((quest) => quest.id == questId);
+    const affectedTask = affectedQuest.tasks.find((task) => task.id == taskId);
+
+    if (affectedTask) {
+        affectedQuest.tasks = affectedQuest.tasks.filter((task) => task.id !== taskId);
+
+        localStorage.setItem('questLog', JSON.stringify(questLog));
         UpdateView();
         return
     }
 
-    console.error(`Task of name '${taskName}' not found`);  
+    console.error(`Task with id '${taskId}' not found`);  
 };
