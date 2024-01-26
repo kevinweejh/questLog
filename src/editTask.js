@@ -18,7 +18,7 @@ export default (questId, taskId) => {
             'dueDate': prompt('When is this due?'),
         }
         console.log('time to filter', affectedQuest);
-        affectedQuest.tasks = affectedQuest.tasks.filter((task) => task.title !== oldTaskTitle)
+        affectedQuest.tasks = affectedQuest.tasks.filter((task) => task.id !== taskId)
         console.log('after filtering', affectedQuest);
         affectedQuest.tasks.push(newTask);
         console.log('after pushing', affectedQuest);
