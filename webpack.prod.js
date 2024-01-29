@@ -18,17 +18,15 @@ module.exports = merge(common, {
       new CssMinimizerPlugin(),
       new ImageMinimizerPlugin({
         minimizer: {
-          implementation: ImageMinimizerPlugin.squooshMinify,
+          implementation: ImageMinimizerPlugin.imageminMinify,
           options: {
-            encodeOptions: {
-              mozjpeg: {
-                quality: 100,
-              },
-              webp: {
-                lossless: 1,
-              },
-            },
-          },
+            plugins: [
+              ["imagemin-mozjpeg", {
+                quality: 75, 
+                progressive: true
+              }]
+            ]
+          }
         },
       }),
     ],
