@@ -1,7 +1,7 @@
-import AddVideoBackground from './addVideoBackground.js';
-import AddStartBtn from './addStartBtn.js';
+import AddVideoBackground from "./addVideoBackground";
+import AddStartBtn from "./addStartBtn";
 
 export default () => {
-    AddVideoBackground();
-    AddStartBtn();
-}
+  AddVideoBackground();
+  AddStartBtn();
+};

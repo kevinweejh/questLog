@@ -1,27 +1,23 @@
-import UpdateView from './updateView.js';
+import UpdateView from "./updateView";
 
 export default (questId, taskId) => {
-    const initialQuestLog = JSON.parse(localStorage.getItem('questLog'));
-    const revisedQuestLog = initialQuestLog.slice();
+  const initialQuestLog = JSON.parse(localStorage.getItem("questLog"));
+  const revisedQuestLog = initialQuestLog.slice();
 
-    const affectedQuest = revisedQuestLog.find((quest) => quest.id == questId)
-    
-    const affectedTask = affectedQuest.tasks.find((task) => task.id == taskId);
-    console.log('affected quest is ', affectedQuest);
-    console.log('affected task is ', affectedTask);
+  const affectedQuest = revisedQuestLog.find((quest) => quest.id === questId);
 
-    if (affectedTask) {
-        const newTask = {
-            ...affectedTask,
-            'completed': !affectedTask.completed,
-        }
-        console.log('time to filter', affectedQuest);
-        affectedQuest.tasks = affectedQuest.tasks.filter((task) => task.id !== taskId)
-        console.log('after filtering', affectedQuest);
-        affectedQuest.tasks.push(newTask);
-        console.log('after pushing', affectedQuest);
-        localStorage.setItem('questLog', JSON.stringify(revisedQuestLog));
-        UpdateView();
-        return;
-    }
-}
+  const affectedTask = affectedQuest.tasks.find((task) => task.id === taskId);
+
+  if (affectedTask) {
+    const newTask = {
+      ...affectedTask,
+      completed: !affectedTask.completed,
+    };
+    affectedQuest.tasks = affectedQuest.tasks.filter(
+      (task) => task.id !== taskId,
+    );
+    affectedQuest.tasks.push(newTask);
+    localStorage.setItem("questLog", JSON.stringify(revisedQuestLog));
+    UpdateView();
+  }
+};
