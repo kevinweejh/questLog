@@ -12,3 +12,9 @@ export const appendMultipleChildren = (parent, ...children) => {
         parent.appendChild(child);
     })
 }
+
+export const addMultipleClasses = (element, classesToAdd) => {
+    classesToAdd.forEach((classToAdd) => {
+        element.classList.add(classToAdd);
+    })
+}
