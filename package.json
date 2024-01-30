@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,json,css}'"
   },
   "author": "",
   "license": "ISC",
