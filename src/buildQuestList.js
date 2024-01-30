@@ -8,7 +8,7 @@ import ToggleTaskCompletion from './toggleTaskCompletion.js';
 export default () => {
     const container = document.querySelector('body');
     const questLog = JSON.parse(localStorage.getItem('questLog'));
-    const questList = createElement('div', ['flex', 'flex-col', 'border-green-300', 'border-4'], '', 'fullQuestLog');
+    const questList = createElement('div', ['flex', 'flex-col', 'border-green-300', 'border-4', 'z-10', 'absolute', 'max-h-[75%]', 'overflow-y-auto', 'top-1/2', 'left-1/2', 'transform', '-translate-x-1/2', '-translate-y-1/2'], '', 'fullQuestLog');
     questLog.forEach((quest) => {
         const questContainer = createElement('div', ['flex', 'flex-col', 'border', 'border-blue-300', 'border-4'], '');
         const questName = createElement('h1', ['text-2xl', 'font-semibold', 'border'], `Quest: ${quest.name}`);
