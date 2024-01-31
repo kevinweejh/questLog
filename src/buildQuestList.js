@@ -86,7 +86,7 @@ export default () => {
         "rounded-3xl",
         "w-1/4",
         "text-center",
-        "mt-3",
+        "mr-2",
       ],
       "+ Task",
     );
@@ -101,7 +101,7 @@ export default () => {
         "w-8",
         "h-8",
         "text-center",
-        "mt-3",
+        "mr-2",
       ],
       "x",
     );
@@ -116,7 +116,7 @@ export default () => {
         "w-8",
         "h-8",
         "text-center",
-        "mt-3",
+        "mr-2",
       ],
       '',
       'defaultBtn',
@@ -124,18 +124,23 @@ export default () => {
     );
     questDefaultStatus.addEventListener("click", () => ToggleQuestDefault(quest.id));
 
+    const questOptions = createElement('div', ['flex', 'items-center', 'mt-3'], '');
+    appendMultipleChildren(
+      questOptions, 
+      questAddTaskBtn,
+      questRemoveBtn,
+      questDefaultStatus,)
+
     appendMultipleChildren(
       questContainer,
       questName,
-      questAddTaskBtn,
-      questRemoveBtn,
-      questDefaultStatus,
+      questOptions,
     );
 
     quest.tasks.forEach((task) => {
       const taskContainer = createElement(
         "div",
-        ["flex", "flex-col", "border-2", "bg-yellow-800", "rounded-3xl", "p-3"],
+        ["flex", "flex-col", "border-2", "bg-yellow-800", "rounded-3xl", "p-3", "mt-3"],
         "",
       );
       const taskTitle = createElement(
@@ -153,7 +158,7 @@ export default () => {
           "w-8",
           "h-8",
           "text-center",
-          "mt-3",
+          "mr-3",
         ],
         "...",
       );
@@ -168,7 +173,7 @@ export default () => {
           "w-8",
           "h-8",
           "text-center",
-          "mt-3",
+          "mr-3",
         ],
         "x",
       );
@@ -185,7 +190,7 @@ export default () => {
           "w-8",
           "h-8",
           "text-center",
-          "mt-3",
+          "mr-3",
         ],
         "✓",
       );
@@ -194,29 +199,41 @@ export default () => {
       );
       const taskDescription = createElement(
         "p",
-        ["border", "border-red-300", "border-4"],
+        ["mt-2"],
         `Description: ${task.description}`,
       );
       const taskPriority = createElement(
         "p",
-        ["border", "border-red-300", "border-4"],
+        ["mt-2"],
         `Priority: ${task.priority}`,
       );
       const taskDueDate = createElement(
-        "p",
-        ["border", "border-red-300", "border-4"],
-        `Due date: ${task.dueDate}`,
+        "pre",
+        ["mt-2", "font-sans"],
+        `  ↳ Due: ${task.dueDate}`,
       );
+
+      const taskOptions = createElement('div', ['flex', 'items-center', 'mt-3', 'justify-center'], '');
+      appendMultipleChildren(
+        taskOptions,
+        taskToggleCompletionBtn,
+        taskEditBtn,
+        taskRemoveBtn,
+      )
+      
+      const taskDetails = createElement('div', ['flex', 'flex-col', 'rounded-3xl'], '')
+      appendMultipleChildren(
+        taskDetails,
+        taskDescription,
+        taskPriority,
+      )
 
       appendMultipleChildren(
         taskContainer,
         taskTitle,
-        taskEditBtn,
-        taskRemoveBtn,
-        taskToggleCompletionBtn,
-        taskDescription,
-        taskPriority,
         taskDueDate,
+        taskOptions,
+        taskDetails,
       );
 
       questContainer.appendChild(taskContainer);
