@@ -1,4 +1,5 @@
 import UpdateView from "./updateView";
+import SortQuestOrder from "./sortQuestOrder";
 
 export default (questId) => {
   const initialQuestLog = JSON.parse(localStorage.getItem("questLog"));
@@ -12,6 +13,6 @@ export default (questId) => {
     }
   });
 
-  localStorage.setItem("questLog", JSON.stringify(revisedQuestLog));
+  SortQuestOrder(revisedQuestLog);
   UpdateView();
 };
