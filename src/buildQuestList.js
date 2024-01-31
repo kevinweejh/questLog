@@ -155,9 +155,9 @@ export default () => {
       }
       
       const taskDueDate = createElement(
-        "pre",
-        ["mt-2", "font-sans"],
-        `  ↳ Due: ${task.dueDate}`,
+        "p",
+        ["mt-2", "font-sans", "text-right", "pr-3"],
+        `↳ Due: ${task.dueDate}`,
       );
       const taskExpansionBtn = createElement(
         "button", 
