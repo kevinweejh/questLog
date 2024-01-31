@@ -1,9 +1,11 @@
 import { createElement, appendMultipleChildren } from "./utils";
 import AddTask from "./addTask";
+import AddQuest from "./addQuest";
 import EditTask from "./editTask";
 import RemoveTask from "./removeTask";
 import RemoveQuest from "./removeQuest";
 import ToggleTaskCompletion from "./toggleTaskCompletion";
+import ToggleQuestDefault from "./toggleQuestDefault";
 
 export default () => {
   const container = document.querySelector("body");
@@ -13,7 +15,6 @@ export default () => {
     [
       "p-3",
       "m-3",
-      "border-brown-600",
       "border-2",
       "text-white",
       "hover:bg-yellow-400",
@@ -31,13 +32,14 @@ export default () => {
     ],
     "Add Quest",
   );
+  questAddBtn.addEventListener("click", () => AddQuest());
   const questList = createElement(
     "div",
     [
       "flex",
       "flex-col",
-      "border-green-300",
-      "border-4",
+      "border-2",
+      "text-white",
       "z-10",
       "absolute",
       "max-h-[65%]",
@@ -48,6 +50,7 @@ export default () => {
       "-translate-x-1/2",
       "-translate-y-1/2",
       "w-1/3",
+      "rounded-3xl",
     ],
     "",
     "fullQuestLog",
@@ -55,24 +58,33 @@ export default () => {
   questLog.forEach((quest) => {
     const questContainer = createElement(
       "div",
-      ["flex", "flex-col", "border", "border-blue-300", "border-4"],
+      [
+        "flex",
+        "flex-col",
+        "bg-yellow-800",
+        "text-white",
+        "p-3"
+      ],
       "",
     );
     const questName = createElement(
       "h1",
-      ["text-2xl", "font-semibold", "border"],
-      `Quest: ${quest.name}`,
+      ["text-2xl", "font-semibold", "border-2", "rounded-3xl", "p-2", "text-center"],
+      `${quest.name}`,
     );
     const questAddTaskBtn = createElement(
       "btn",
       [
-        "p-3",
-        "m-3",
-        "border",
-        "hover:bg-purple-600",
+        "p-2",
+        "border-2",
+        "hover:bg-yellow-400",
+        "hover:border-yellow-400",
+        "hover:text-yellow-800",
         "cursor-pointer",
-        "rounded-lg",
-        "w-fit",
+        "rounded-3xl",
+        "w-1/4",
+        "text-center",
+        "mt-3",
       ],
       "+ Task",
     );
@@ -80,22 +92,39 @@ export default () => {
     const questRemoveBtn = createElement(
       "btn",
       [
-        "p-3",
-        "m-3",
-        "border",
-        "hover:bg-purple-600",
+        "border-2",
+        "hover:bg-yellow-400",
+        "hover:border-yellow-400",
+        "hover:text-yellow-800",
         "cursor-pointer",
-        "rounded-lg",
-        "w-fit",
+        "rounded-[50%]",
+        "w-8",
+        "h-8",
+        "text-center",
+        "mt-3",
       ],
       "x",
     );
     questRemoveBtn.addEventListener("click", () => RemoveQuest(quest.id));
     const questDefaultStatus = createElement(
-      "p",
-      ["border"],
-      `Default: ${quest.default}`,
+      "button",
+      [
+        "border-2",
+        "hover:bg-yellow-400",
+        "hover:border-yellow-400",
+        "hover:text-yellow-800",
+        "cursor-pointer",
+        "rounded-[50%]",
+        "w-8",
+        "h-8",
+        "text-center",
+        "mt-3",
+      ],
+      '',
+      'defaultBtn',
+      quest,
     );
+    questDefaultStatus.addEventListener("click", () => ToggleQuestDefault(quest.id));
 
     appendMultipleChildren(
       questContainer,
@@ -193,5 +222,10 @@ export default () => {
     });
     questList.appendChild(questContainer);
   });
-  appendMultipleChildren(container, questAddBtn, questList);
+  if (questList.hasChildNodes()) {
+    appendMultipleChildren(container, questAddBtn, questList);
+  } else {
+    container.appendChild(questAddBtn);
+  }
+  
 };
