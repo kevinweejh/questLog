@@ -32,6 +32,9 @@ Additional benefits not yet explored in this current iteration of QuestLog inclu
 1. **Synchronization**: UUIDs eliminate the risk of duplication, which is crucial when quests/tasks need to be shared across multiple devices or platforms.
 2. **Privacy**: UUIDs can be used to unique session or user IDs. As UUIDs are generated independently of the user, they do not reveal any potentially private information about the user itself. 
 
+### Image Compression
+QuestLog integrates the use of `image-minimizer-webpack-plugin`, specifically employing the `imagemin-mozjpeg` JPEG encoder, within the Webpack configuration. This ensures that all images are automatically optimized as part of the build process. This step is crucial for improving the performance of QuestLog by reducing the size of image assets without compromising on quality.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
