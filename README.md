@@ -14,16 +14,23 @@ Check out the live version here: [QuestLog Demo](https://kevinweejh.github.io/qu
 
 ### Key Features
 
-- [x] Quest-Based Tasks: Each task you add is treated as a "quest" with different difficulty levels (Easy, Medium, Hard). Completing these quests earns you points and rewards.
+- [x] Quest-Based Tasks: Each task you add as part of a quest is assigned with a difficulty level (Easy, Medium, Hard). 
 
-- [ ] Character Progression: Create a character when you start using the app. Completing tasks levels up your character, unlocking new abilities and rewards.
+- [ ] Character Progression (WIP): Create a character when you start using the app. Completing tasks levels up your character, unlocking new abilities and rewards.
 
-- [ ] Reward System: Earn in-app currency, "Gold," by completing tasks. Use Gold to customize your character and unlock special abilities.
+- [ ] Reward System (WIP): Earn in-app currency, "Gold," by completing tasks. Use Gold to customize your character and unlock special abilities.
 
 ## Technical Details
 
 ### Local Storage
 QuestLog stores your data using the browser's `localStorage`, ensuring it remains available even after closing the tab or window. That said, data persistence is not guaranteed in 'private browsing' mode or if your browser is set to clear data automatically. It is worth noting that the data stored in `localStorage` is specific to the domain of QuestLog, so it can't be accessed by other websites, enhancing security and privacy.
+
+### Universally Unique Identifier (UUID)
+QuestLog uses `uuid` for task and quest IDs. This ensures that all tasks and quests have a unique identifier. This is beneficial as it allows each task and quest to be easily referenced by modules. 
+
+Additional benefits not yet explored in this current iteration of QuestLog include: 
+1. **Synchronization**: UUIDs eliminate the risk of duplication, which is crucial when quests/tasks need to be shared across multiple devices or platforms.
+2. **Privacy**: UUIDs can be used to unique session or user IDs. As UUIDs are generated independently of the user, they do not reveal any potentially private information about the user itself. 
 
 ## Getting Started
 
@@ -67,7 +74,7 @@ npm run build
 
 While this project is primarily a personal learning exercise, I welcome anyone interested in using it for their learning or experimenting. Feel free to fork the repository, try out different configurations, and share your findings. 
 
-If you have suggestions for improvements or new features, please read [CONTRIBUTING.md](LINK_TO_CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+If you have suggestions for improvements or would like to help build new features, please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ### Support
 
