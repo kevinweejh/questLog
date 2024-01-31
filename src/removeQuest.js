@@ -10,8 +10,5 @@ export default (questId) => {
   if (isRemoved) {
     localStorage.setItem("questLog", JSON.stringify(revisedQuestLog));
     UpdateView();
-    return;
   }
-
-  console.error(`Quest of id '${questId}' not found`);
 };

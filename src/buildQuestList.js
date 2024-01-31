@@ -72,7 +72,14 @@ export default () => {
     );
     const questName = createElement(
       "h1",
-      ["text-2xl", "font-semibold", "border-2", "rounded-3xl", "p-2", "text-center"],
+      [
+        "text-2xl",
+        "font-semibold",
+        "border-2",
+        "rounded-3xl",
+        "p-2",
+        "text-center",
+      ],
       `${quest.name}`,
     );
     const questAddTaskBtn = createElement(
@@ -117,50 +124,68 @@ export default () => {
         "text-center",
         "mr-2",
       ],
-      '',
-      'defaultBtn',
+      "",
+      "defaultBtn",
       quest,
     );
-    questDefaultStatus.addEventListener("click", () => ToggleQuestDefault(quest.id));
+    questDefaultStatus.addEventListener("click", () =>
+      ToggleQuestDefault(quest.id),
+    );
 
-    const questOptions = createElement('div', ['flex', 'items-center', 'mt-3'], '');
+    const questOptions = createElement(
+      "div",
+      ["flex", "items-center", "mt-3"],
+      "",
+    );
     appendMultipleChildren(
-      questOptions, 
+      questOptions,
       questAddTaskBtn,
       questRemoveBtn,
-      questDefaultStatus,)
-
-    appendMultipleChildren(
-      questContainer,
-      questName,
-      questOptions,
+      questDefaultStatus,
     );
+
+    appendMultipleChildren(questContainer, questName, questOptions);
 
     quest.tasks.forEach((task) => {
       const taskContainer = createElement(
         "div",
-        ["flex", "flex-col", "border-2", "bg-yellow-800", "rounded-3xl", "p-3", "mt-3"],
+        [
+          "flex",
+          "flex-col",
+          "border-2",
+          "bg-yellow-800",
+          "rounded-3xl",
+          "p-3",
+          "mt-3",
+        ],
         "",
         uuidv4(),
       );
       const isTaskCompleted = task.completed;
       const taskTitle = createElement(
         "h1",
-        ["text-2xl", "font-semibold", "border-2", "p-2", "rounded-full", "text-center"],
+        [
+          "text-2xl",
+          "font-semibold",
+          "border-2",
+          "p-2",
+          "rounded-full",
+          "text-center",
+        ],
         `${task.title}`,
       );
-      
+
       if (isTaskCompleted) {
         taskTitle.classList.add("line-through");
       }
-      
+
       const taskDueDate = createElement(
         "p",
         ["mt-2", "font-sans", "text-right", "pr-3"],
         `↳ Due: ${task.dueDate}`,
       );
       const taskExpansionBtn = createElement(
-        "button", 
+        "button",
         [
           "border-2",
           "hover:bg-yellow-600",
@@ -172,12 +197,12 @@ export default () => {
           "mt-2",
           "text-xs",
           "mx-auto",
-        ], 
+        ],
         "+ expand task",
-      )
+      );
       taskExpansionBtn.addEventListener("click", () => {
         ExpandTask(quest.id, task.id, taskContainer.id);
-        taskExpansionBtn.classList.add('hidden');
+        taskExpansionBtn.classList.add("hidden");
       });
 
       appendMultipleChildren(
@@ -196,5 +221,4 @@ export default () => {
   } else {
     container.appendChild(questAddBtn);
   }
-  
 };

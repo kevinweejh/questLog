@@ -13,11 +13,13 @@ export default (questId, taskId) => {
       ...affectedTask,
       title: prompt("What is the new title of this task?"),
       description: prompt("What is the new description of this task?"),
-      difficulty: prompt("What is the new difficulty of this task? (Easy / Medium / Hard)"),
+      difficulty: prompt(
+        "What is the new difficulty of this task? (Easy / Medium / Hard)",
+      ),
       dueDate: prompt("When is this due? Format: yyyymmdd E.g. 20241225"),
     };
     const newTaskDateFixed = FixDate(newTask);
-    
+
     affectedQuest.tasks = affectedQuest.tasks.filter(
       (task) => task.id !== taskId,
     );
@@ -26,5 +28,4 @@ export default (questId, taskId) => {
     UpdateView();
     return;
   }
-  console.error("Invalid task name");
 };

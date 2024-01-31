@@ -13,8 +13,5 @@ export default (questId, taskId) => {
 
     localStorage.setItem("questLog", JSON.stringify(questLog));
     UpdateView();
-    return;
   }
-
-  console.error(`Task with id '${taskId}' not found`);
 };
