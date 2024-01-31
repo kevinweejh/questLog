@@ -14,7 +14,7 @@ Check out the live version here: [QuestLog Demo](https://kevinweejh.github.io/qu
 
 ### Key Features
 
-- [ ] Quest-Based Tasks: Each task you add is treated as a "quest" with different difficulty levels (Easy, Medium, Hard). Completing these quests earns you points and rewards.
+- [x] Quest-Based Tasks: Each task you add is treated as a "quest" with different difficulty levels (Easy, Medium, Hard). Completing these quests earns you points and rewards.
 
 - [ ] Character Progression: Create a character when you start using the app. Completing tasks levels up your character, unlocking new abilities and rewards.
 

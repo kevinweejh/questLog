@@ -9,7 +9,7 @@ export default (questId) => {
     id: uuidv4(),
     title: prompt("What is the title of your next task?"),
     description: prompt("What is the description of this task?"),
-    priority: prompt("What is the priority of this task? (Low/Medium/High)"),
+    difficulty: prompt("What is the difficulty of this task? (Easy / Medium / Hard)"),
     dueDate: prompt("When is this due? Format: yyyymmdd E.g. 20241225"),
     completed: false,
   };

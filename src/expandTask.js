@@ -63,10 +63,10 @@ export default (questId, taskId, taskContainerId) => {
     ["mt-2"],
     `Description: ${affectedTask.description}`,
     );
-    const taskPriority = createElement(
+    const taskDifficulty = createElement(
     "p",
     ["mt-2"],
-    `Priority: ${affectedTask.priority}`,
+    `Difficulty: ${affectedTask.difficulty}`,
     );
 
     const taskOptions = createElement('div', ['flex', 'items-center', 'mt-3', 'justify-center'], '');
@@ -81,7 +81,7 @@ export default (questId, taskId, taskContainerId) => {
     appendMultipleChildren(
         taskDetails,
         taskDescription,
-        taskPriority,
+        taskDifficulty,
     )
 
     const taskContainer = document.getElementById(`${taskContainerId}`);
