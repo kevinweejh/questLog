@@ -58,12 +58,12 @@ export default (questId, taskId, taskContainerId) => {
   );
   const taskDescription = createElement(
     "p",
-    ["mt-2", "underline"],
+    ["mt-2"],
     `Description: ${affectedTask.description}`,
   );
   const taskDifficulty = createElement(
     "p",
-    ["mt-2"],
+    ["mt-2", "underline"],
     `Difficulty: ${affectedTask.difficulty}`,
   );
 
