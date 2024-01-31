@@ -1,4 +1,5 @@
 import UpdateView from "./updateView";
+import FixDate from "./fixDate";
 
 export default (questId, taskId) => {
   const initialQuestLog = JSON.parse(localStorage.getItem("questLog"));
@@ -13,12 +14,14 @@ export default (questId, taskId) => {
       title: prompt("What is the new title of this task?"),
       description: prompt("What is the new description of this task?"),
       priority: prompt("What is the new priority of this task?"),
-      dueDate: prompt("When is this due?"),
+      dueDate: prompt("When is this due? Format: yyyymmdd E.g. 20241225"),
     };
+    const newTaskDateFixed = FixDate(newTask);
+    
     affectedQuest.tasks = affectedQuest.tasks.filter(
       (task) => task.id !== taskId,
     );
-    affectedQuest.tasks.push(newTask);
+    affectedQuest.tasks.push(newTaskDateFixed);
     localStorage.setItem("questLog", JSON.stringify(revisedQuestLog));
     UpdateView();
     return;
