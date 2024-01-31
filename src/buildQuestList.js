@@ -51,6 +51,7 @@ export default () => {
       "-translate-y-1/2",
       "w-1/3",
       "rounded-3xl",
+      "bg-yellow-800",
     ],
     "",
     "fullQuestLog",
@@ -61,9 +62,12 @@ export default () => {
       [
         "flex",
         "flex-col",
-        "bg-yellow-800",
+        "bg-yellow-600",
         "text-white",
-        "p-3"
+        "p-3",
+        "border-2",
+        "m-3",
+        "rounded-3xl",
       ],
       "",
     );
@@ -77,9 +81,7 @@ export default () => {
       [
         "p-2",
         "border-2",
-        "hover:bg-yellow-400",
-        "hover:border-yellow-400",
-        "hover:text-yellow-800",
+        "hover:bg-yellow-800",
         "cursor-pointer",
         "rounded-3xl",
         "w-1/4",
@@ -93,9 +95,7 @@ export default () => {
       "btn",
       [
         "border-2",
-        "hover:bg-yellow-400",
-        "hover:border-yellow-400",
-        "hover:text-yellow-800",
+        "hover:bg-yellow-800",
         "cursor-pointer",
         "rounded-[50%]",
         "w-8",
@@ -110,9 +110,7 @@ export default () => {
       "button",
       [
         "border-2",
-        "hover:bg-yellow-400",
-        "hover:border-yellow-400",
-        "hover:text-yellow-800",
+        "hover:bg-yellow-800",
         "cursor-pointer",
         "rounded-[50%]",
         "w-8",
@@ -137,24 +135,25 @@ export default () => {
     quest.tasks.forEach((task) => {
       const taskContainer = createElement(
         "div",
-        ["flex", "flex-col", "border", "border-red-300", "border-4"],
+        ["flex", "flex-col", "border-2", "bg-yellow-800", "rounded-3xl", "p-3"],
         "",
       );
       const taskTitle = createElement(
         "h1",
-        ["text-2xl", "font-semibold", "border", "border-red-300", "border-4"],
-        `Title: ${task.title}`,
+        ["text-2xl", "font-semibold", "border-2", "p-2", "rounded-full", "text-center"],
+        `${task.title}`,
       );
       const taskEditBtn = createElement(
         "btn",
         [
-          "p-3",
-          "m-3",
-          "border",
-          "hover:bg-purple-600",
+          "border-2",
+          "hover:bg-yellow-600",
           "cursor-pointer",
-          "rounded-lg",
-          "w-fit",
+          "rounded-[50%]",
+          "w-8",
+          "h-8",
+          "text-center",
+          "mt-3",
         ],
         "...",
       );
@@ -162,13 +161,14 @@ export default () => {
       const taskRemoveBtn = createElement(
         "btn",
         [
-          "p-3",
-          "m-3",
-          "border",
-          "hover:bg-purple-600",
+          "border-2",
+          "hover:bg-yellow-600",
           "cursor-pointer",
-          "rounded-lg",
-          "w-fit",
+          "rounded-[50%]",
+          "w-8",
+          "h-8",
+          "text-center",
+          "mt-3",
         ],
         "x",
       );
@@ -178,13 +178,14 @@ export default () => {
       const taskToggleCompletionBtn = createElement(
         "btn",
         [
-          "p-3",
-          "m-3",
-          "border",
-          "hover:bg-purple-600",
+          "border-2",
+          "hover:bg-yellow-600",
           "cursor-pointer",
-          "rounded-lg",
-          "w-fit",
+          "rounded-[50%]",
+          "w-8",
+          "h-8",
+          "text-center",
+          "mt-3",
         ],
         "✓",
       );
