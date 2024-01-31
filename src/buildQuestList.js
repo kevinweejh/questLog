@@ -143,11 +143,17 @@ export default () => {
         "",
         uuidv4(),
       );
+      const isTaskCompleted = task.completed;
       const taskTitle = createElement(
         "h1",
         ["text-2xl", "font-semibold", "border-2", "p-2", "rounded-full", "text-center"],
         `${task.title}`,
       );
+      
+      if (isTaskCompleted) {
+        taskTitle.classList.add("line-through");
+      }
+      
       const taskDueDate = createElement(
         "pre",
         ["mt-2", "font-sans"],
