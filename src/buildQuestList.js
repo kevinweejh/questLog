@@ -162,10 +162,12 @@ export default () => {
           "rounded-3xl",
           "w-fit",
           "text-center",
-          "p-2",
+          "p-1",
           "mt-2",
+          "text-xs",
+          "mx-auto",
         ], 
-        "expand",
+        "+ expand task",
       )
       taskExpansionBtn.addEventListener("click", () => {
         ExpandTask(quest.id, task.id, taskContainer.id);
