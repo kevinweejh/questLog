@@ -29,7 +29,7 @@ export default () => {
       "bg-yellow-800",
       "font-extrabold",
     ],
-    "Start Adventuring!",
+    "Start My Adventure!",
   );
 
   const questLogInitialized = localStorage.getItem("questLog");
