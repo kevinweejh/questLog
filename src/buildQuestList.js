@@ -1,11 +1,10 @@
+import { v4 as uuidv4 } from "uuid";
 import { createElement, appendMultipleChildren } from "./utils";
 import AddTask from "./addTask";
 import AddQuest from "./addQuest";
-import EditTask from "./editTask";
-import RemoveTask from "./removeTask";
 import RemoveQuest from "./removeQuest";
-import ToggleTaskCompletion from "./toggleTaskCompletion";
 import ToggleQuestDefault from "./toggleQuestDefault";
+import ExpandTask from "./expandTask";
 
 export default () => {
   const container = document.querySelector("body");
@@ -142,98 +141,42 @@ export default () => {
         "div",
         ["flex", "flex-col", "border-2", "bg-yellow-800", "rounded-3xl", "p-3", "mt-3"],
         "",
+        uuidv4(),
       );
       const taskTitle = createElement(
         "h1",
         ["text-2xl", "font-semibold", "border-2", "p-2", "rounded-full", "text-center"],
         `${task.title}`,
       );
-      const taskEditBtn = createElement(
-        "btn",
-        [
-          "border-2",
-          "hover:bg-yellow-600",
-          "cursor-pointer",
-          "rounded-[50%]",
-          "w-8",
-          "h-8",
-          "text-center",
-          "mr-3",
-        ],
-        "...",
-      );
-      taskEditBtn.addEventListener("click", () => EditTask(quest.id, task.id));
-      const taskRemoveBtn = createElement(
-        "btn",
-        [
-          "border-2",
-          "hover:bg-yellow-600",
-          "cursor-pointer",
-          "rounded-[50%]",
-          "w-8",
-          "h-8",
-          "text-center",
-          "mr-3",
-        ],
-        "x",
-      );
-      taskRemoveBtn.addEventListener("click", () =>
-        RemoveTask(quest.id, task.id),
-      );
-      const taskToggleCompletionBtn = createElement(
-        "btn",
-        [
-          "border-2",
-          "hover:bg-yellow-600",
-          "cursor-pointer",
-          "rounded-[50%]",
-          "w-8",
-          "h-8",
-          "text-center",
-          "mr-3",
-        ],
-        "✓",
-      );
-      taskToggleCompletionBtn.addEventListener("click", () =>
-        ToggleTaskCompletion(quest.id, task.id),
-      );
-      const taskDescription = createElement(
-        "p",
-        ["mt-2"],
-        `Description: ${task.description}`,
-      );
-      const taskPriority = createElement(
-        "p",
-        ["mt-2"],
-        `Priority: ${task.priority}`,
-      );
       const taskDueDate = createElement(
         "pre",
         ["mt-2", "font-sans"],
         `  ↳ Due: ${task.dueDate}`,
       );
-
-      const taskOptions = createElement('div', ['flex', 'items-center', 'mt-3', 'justify-center'], '');
-      appendMultipleChildren(
-        taskOptions,
-        taskToggleCompletionBtn,
-        taskEditBtn,
-        taskRemoveBtn,
+      const taskExpansionBtn = createElement(
+        "button", 
+        [
+          "border-2",
+          "hover:bg-yellow-600",
+          "cursor-pointer",
+          "rounded-3xl",
+          "w-fit",
+          "text-center",
+          "p-2",
+          "mt-2",
+        ], 
+        "expand",
       )
-      
-      const taskDetails = createElement('div', ['flex', 'flex-col', 'rounded-3xl'], '')
-      appendMultipleChildren(
-        taskDetails,
-        taskDescription,
-        taskPriority,
-      )
+      taskExpansionBtn.addEventListener("click", () => {
+        ExpandTask(quest.id, task.id, taskContainer.id);
+        taskExpansionBtn.classList.add('hidden');
+      });
 
       appendMultipleChildren(
         taskContainer,
         taskTitle,
         taskDueDate,
-        taskOptions,
-        taskDetails,
+        taskExpansionBtn,
       );
 
       questContainer.appendChild(taskContainer);
