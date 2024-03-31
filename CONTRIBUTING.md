@@ -1,6 +1,6 @@
-# Contributing to [Your Project's Name]
+# Contributing to QuestLog
 
-First off, thank you for considering contributing to [Your Project's Name]. It's people like you that make [Your Project's Name] such a great tool.
+First off, thank you for considering contributing to QuestLog. It's people like you that make QuestLog such a great tool.
 
 ## Getting Started
 
